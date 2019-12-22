@@ -60,6 +60,7 @@ int8_t queue_terminate(struct queue *q)
    
     q_lock(q);
     q->active = 0;
+    q_unlock(q);
 
     itr = q->head;
     q->head = NULL;
@@ -72,7 +73,6 @@ int8_t queue_terminate(struct queue *q)
         LFREE(d);
     }
     
-    q_unlock(q);
     
     pthread_mutex_destroy(q->lock);
     LFREE(q->lock);
