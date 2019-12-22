@@ -1,7 +1,6 @@
 CC=gcc
-DEPS=lalloc.h queue.h
 CFILES=../src/lalloc.c ../src/queue.c queue_test.c
-CFLAGS=-I../src/
+CFLAGS=-I../include/
 LIBS=-lpthread
 
 

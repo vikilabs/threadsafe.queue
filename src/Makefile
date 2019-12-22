@@ -1,6 +1,6 @@
 CC=gcc
 DEPS=lalloc.h queue.h
-CFLAGS=-I.
+CFLAGS=-I../include/
 ODIR=../lib
 LIBS=-lpthread
 
