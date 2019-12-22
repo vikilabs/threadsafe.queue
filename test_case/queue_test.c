@@ -299,7 +299,7 @@ void queue_test1_delete_element()
 
     //second element
     i = 4;
-    n2 = queue_create_node(&i, sizeof(int));
+    n2 = queue_create_node(NULL, 0);
 
     if(!n2){
         TEST_FAIL("node should not be NULL");
@@ -313,7 +313,7 @@ void queue_test1_delete_element()
         TEST_FAIL("enqueue() success");
     }
 
-    if( (*( (int *) q->head->data ) == 2) && ( *( (int *) q->head->next->data ) == 4 ) ){
+    if( (*( (int *) q->head->data ) == 2) && q->head->next->data  == NULL ){
         TEST_PASS("queue second element added properly");
     }else{
         TEST_FAIL("queue second element not added properly");
@@ -363,8 +363,8 @@ void queue_test1_delete_element()
         TEST_FAIL("queue fourth element not added properly");
     }
 
-    //                     H                 T
-    //delete           |   2 <-> 4 <-> 6 <-> 8
+    //                     H                    T
+    //delete           |   2 <-> NULL <-> 6 <-> 8
 
     n1 = dequeue(q);
     if(n1 != NULL){
@@ -379,7 +379,7 @@ void queue_test1_delete_element()
         TEST_FAIL("dequeue failure");
     }
 
-    if( (    *( (int *) q->head->data) == 4) \
+    if(     (q->head->data == NULL) \
         && ( *( (int *) q->head->next->data) == 6) \
         && ( *( (int *) q->head->next->next->data) == 8) \
         && (            q->head->next->next->next == NULL) \
@@ -390,8 +390,8 @@ void queue_test1_delete_element()
         TEST_FAIL("queue third element(6) deleted properly");
     }
 
-    //                      H           T
-    //delete           |    4 <-> 6 <-> 8
+    //                      H              T
+    //delete           |    NULL <-> 6 <-> 8
 
     n1 = dequeue(q);
     if(n1 != NULL){
@@ -400,7 +400,7 @@ void queue_test1_delete_element()
         TEST_FAIL("queue element not dequeued");
     }
 
-    if( *((int*)n1->data) == 4){
+    if( n1->data == NULL){
         TEST_PASS("dequeue success");
     }else{
         TEST_FAIL("dequeue failure");
