@@ -1,4 +1,4 @@
-/* This piece of code is free ( free means free. Do whatever useful )
+/* This piece of code is free ( free means free. Do whatever useful ;-) )
  *
  *                      Author: Viki (a) Vignesh Natarajan
  *                      Lab   : vikilabs.org
@@ -40,7 +40,7 @@ struct queue *queue_init()
         
         if(!q->lock){
             printf("( error ) OOM ( %s : %d )\n", __func__, __LINE__);
-            lfree(q);
+            LFREE(q);
             return NULL;
         }
         

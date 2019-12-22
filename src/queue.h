@@ -1,4 +1,4 @@
-/* This piece of code is free ( free means free. Do whatever useful )
+/* This piece of code is free ( free means free. Do whatever useful ;-) )
  *
  *                      Author: Viki (a) Vignesh Natarajan
  *                      Lab   : vikilabs.org
