@@ -286,9 +286,15 @@ void queue_test1_delete_element()
 
 
     if(enqueue(q, n1) == 0){
-        TEST_PASS("enqueue() success");
+        TEST_PASS("enqueue()");
     }else{
-        TEST_FAIL("enqueue() success");
+        TEST_FAIL("enqueue()");
+    }
+
+    if(get_nodes_count(q) != 1){
+        TEST_FAIL("enqueue()");
+    }else{
+        TEST_PASS("enqueue()");
     }
 
     if( *( (int *) q->head->data ) == 2 ){
@@ -313,6 +319,14 @@ void queue_test1_delete_element()
         TEST_FAIL("enqueue() success");
     }
 
+    if(get_nodes_count(q) != 2){
+        TEST_FAIL("enqueue()");
+    }else{
+        TEST_PASS("enqueue()");
+    }
+
+
+
     if( (*( (int *) q->head->data ) == 2) && q->head->next->data  == NULL ){
         TEST_PASS("queue second element added properly");
     }else{
@@ -329,11 +343,21 @@ void queue_test1_delete_element()
         TEST_PASS("node should not be NULL");
     }
 
+
+
     if(enqueue(q, n3) == 0){
         TEST_PASS("enqueue() success");
     }else{
         TEST_FAIL("enqueue() success");
     }
+
+    if(get_nodes_count(q) != 3){
+        TEST_FAIL("enqueue()");
+    }else{
+        TEST_PASS("enqueue()");
+    }
+
+
 
     if( *( (int *) q->head->next->next->data ) == 6 ){
         TEST_PASS("queue third element added properly");
@@ -356,6 +380,13 @@ void queue_test1_delete_element()
     }else{
         TEST_FAIL("enqueue() success");
     }
+
+    if(get_nodes_count(q) != 4){
+        TEST_FAIL("enqueue()");
+    }else{
+        TEST_PASS("enqueue()");
+    }
+
 
     if( *( (int *) q->head->next->next->next->data ) == 8 ){
         TEST_PASS("queue fourth element added properly");
